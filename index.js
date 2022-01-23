@@ -43,10 +43,14 @@ function reset_electricity(){
 }
 function reset(){
     console.log(localStorage.getItem('waste_slider'),localStorage.getItem('travel_slider'), localStorage.getItem('electricity_slider'));
-    document.getElementById("waste_slider_1").value = localStorage.getItem('waste_slider') || 1;
-    document.getElementById("travel_slider_1").value = localStorage.getItem('travel_slider') || 1;
-    document.getElementById("electricity_slider_1").value = localStorage.getItem('electricity_slider') || 1;
-    document.getElementById("disabledRange").value = (parseInt(localStorage.getItem('electricity_slider')) +parseInt(localStorage.getItem('travel_slider'))+parseInt(localStorage.getItem('waste_slider')))|| 1;
+    var waste = localStorage.getItem('waste_slider') || 1;
+    var electricity = localStorage.getItem('electricity_slider') || 1;
+    var travel = localStorage.getItem('travel_slider') || 1;
+
+    document.getElementById("waste_slider_1").value = waste;
+    document.getElementById("travel_slider_1").value = travel;
+    document.getElementById("electricity_slider_1").value = electricity;
+    document.getElementById("disabledRange").value = (waste+travel+electricity)|| 1;
     
 
 
