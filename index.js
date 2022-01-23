@@ -50,7 +50,7 @@ function reset(){
     document.getElementById("waste_slider_1").value = waste;
     document.getElementById("travel_slider_1").value = travel;
     document.getElementById("electricity_slider_1").value = electricity;
-    document.getElementById("disabledRange").value = (waste+travel+electricity)|| 1;
+    document.getElementById("disabledRange").value = (waste+travel+electricity);
     
 
 
