@@ -71,10 +71,7 @@ function reset() {
     localStorage.getItem("travel_slider") || 1;
   document.getElementById("electricity_slider_1").value =
     localStorage.getItem("electricity_slider") || 1;
-  document.getElementById("disabledRange").value =
-    parseInt(localStorage.getItem("electricity_slider")) / 30 +
-      parseInt(localStorage.getItem("travel_slider")) / 30 +
-      parseInt(localStorage.getItem("waste_slider")) / 30 || 1;
+  document.getElementById("disabledRange").value = (parseInt(localStorage.getItem("electricity_slider")) + parseInt(localStorage.getItem("travel_slider"))+ parseInt(localStorage.getItem("waste_slider"))) / 3 || 1;
 }
 
 function recycle(id) {
@@ -198,7 +195,7 @@ function travel(id) {
     document.getElementById("bus").value = "";
     localStorage.setItem(
       "travel_slider",
-      document.getElementById("disabledRange").value
+      totalT
     );
   }
 }
@@ -258,7 +255,7 @@ function electricity(id) {
 
     localStorage.setItem(
       "electricity_slider",
-      document.getElementById("disabledRange").value
+      totalE
     );
   }
 }
