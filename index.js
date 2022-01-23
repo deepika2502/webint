@@ -43,14 +43,14 @@ function reset_electricity(){
 }
 function reset(){
     console.log(localStorage.getItem('waste_slider'),localStorage.getItem('travel_slider'), localStorage.getItem('electricity_slider'));
-    var waste = localStorage.getItem('waste_slider') || 1;
-    var electricity = localStorage.getItem('electricity_slider') || 1;
-    var travel = localStorage.getItem('travel_slider') || 1;
+    var waste = parseInt(localStorage.getItem('waste_slider')) || 1;
+    var electricity = parseInt(localStorage.getItem('electricity_slider')) || 1;
+    var travel = parseInt(localStorage.getItem('travel_slider')) || 1;
 
     document.getElementById("waste_slider_1").value = waste;
     document.getElementById("travel_slider_1").value = travel;
     document.getElementById("electricity_slider_1").value = electricity;
-    document.getElementById("disabledRange").value = (waste+travel+electricity);
+    document.getElementById("disabledRange").value = (waste+travel+electricity)/3;
     
 
 
@@ -59,58 +59,61 @@ function reset(){
 
 function recycle(id){
     console.log('Clicked: ' + id)
-    slider_waste = localStorage.getItem('waste_slider') || 1;
+    slider_waste = localStorage.getItem('waste_slider');
     switch (id) {
         case 'organic_1':
             var x = document.getElementById("organic_slider_1").value;
-            document.getElementById("disabledRange").value=slider_waste - x;
+            console.log(x)
+            document.getElementById("disabledRange").value=(slider_waste - x);
             break;
 
         case 'organic_2':
             var x = document.getElementById("organic_slider_1").value;
-            document.getElementById("disabledRange").value= parseInt(slider_waste)+ parseInt(x) ;
+            document.getElementById("disabledRange").value=  (parseInt(slider_waste)+ parseInt(x)) ;
+            console.log(x, document.getElementById("disabledRange").value)
+
             break;    
 
         case 'plastic_1':
             var x = document.getElementById("plastic_slider_1").value;
-            document.getElementById("disabledRange").value=slider_waste - x;
+            document.getElementById("disabledRange").value=(slider_waste - x);
             break;
         case 'plastic_2':
             var x = document.getElementById("plastic_slider_1").value;
-            document.getElementById("disabledRange").value = parseInt(slider_waste)+ parseInt(x);
+            document.getElementById("disabledRange").value =  (parseInt(slider_waste)+ parseInt(x));
             break;
         case 'battery_1':
             var x = document.getElementById("battery_slider_1").value;
-            document.getElementById("disabledRange").value=slider_waste - x;
+            document.getElementById("disabledRange").value=(slider_waste - x);
             break;
         case 'battery_2':
             var x = document.getElementById("battery_slider_1").value;
-            document.getElementById("disabledRange").value=parseInt(slider_waste)+ parseInt(x);
+            document.getElementById("disabledRange").value= (parseInt(slider_waste)+ parseInt(x));
             break;
         case 'glass_1':
             var x = document.getElementById("glass_slider_1").value;
-            document.getElementById("disabledRange").value=slider_waste - x;
+            document.getElementById("disabledRange").value=(slider_waste - x);
             break;
         case 'glass_2':
             var x = document.getElementById("glass_slider_1").value;
-            document.getElementById("disabledRange").value=parseInt(slider_waste)+ parseInt(x);
+            document.getElementById("disabledRange").value= (parseInt(slider_waste)+ parseInt(x));
             break;
 
         case 'clothes_1':
             var x = document.getElementById("clothes_slider_1").value;
-            document.getElementById("disabledRange").value=slider_waste - x;
+            document.getElementById("disabledRange").value=(slider_waste - x);
             break;
         case 'clothes_2':
             var x = document.getElementById("clothes_slider_1").value;
-            document.getElementById("disabledRange").value=parseInt(slider_waste)+ parseInt(x);
+            document.getElementById("disabledRange").value= (parseInt(slider_waste)+ parseInt(x));
             break;
         case 'aluminium_1':
             var x = document.getElementById("aluminium_slider_1").value;
-            document.getElementById("disabledRange").value=slider_waste - x;
+            document.getElementById("disabledRange").value=(slider_waste - x);
             break;
         case 'aluminium_2':
             var x = document.getElementById("aluminium_slider_1").value;
-            document.getElementById("disabledRange").value=parseInt(slider_waste)+ parseInt(x);
+            document.getElementById("disabledRange").value= (parseInt(slider_waste)+ parseInt(x));
             break;
         }
         localStorage.setItem('waste_slider',document.getElementById("disabledRange").value )
@@ -122,29 +125,29 @@ function travel(id){
     switch (id) {
         case 'bus_b':
             var x = document.getElementById("bus").value;
-            document.getElementById("disabledRange").value=parseInt(slider_travel)+ parseInt(x);
+            document.getElementById("disabledRange").value=(parseInt(slider_travel)+ parseInt(x))/100;
             break;
 
         case 'train_b':
             var x = document.getElementById("train").value;
-            document.getElementById("disabledRange").value= parseInt(slider_travel)+ parseInt(x) ;
+            document.getElementById("disabledRange").value= (parseInt(slider_travel)+ parseInt(x))/100 ;
             break;    
 
         case 'walk_b':
             var x = document.getElementById("walk").value;
-            document.getElementById("disabledRange").value=parseInt(slider_travel)+ parseInt(x);
+            document.getElementById("disabledRange").value=(parseInt(slider_travel)+ parseInt(x))/100;
             break;
         case 'bike_b':
             var x = document.getElementById("bike").value;
-            document.getElementById("disabledRange").value = parseInt(slider_travel)+ parseInt(x);
+            document.getElementById("disabledRange").value = (parseInt(slider_travel)+ parseInt(x))/100;
             break;
         case 'car_b':
             var x = document.getElementById("car").value;
-            document.getElementById("disabledRange").value=slider_travel - x;
+            document.getElementById("disabledRange").value=(slider_travel - x)/100;
             break;
         case 'taxi_b':
             var x = document.getElementById("taxi").value;
-            document.getElementById("disabledRange").value=slider_travel - x;
+            document.getElementById("disabledRange").value=(slider_travel - x)/100;
             break;
     }
     localStorage.setItem('travel_slider',document.getElementById("disabledRange").value )
@@ -158,35 +161,29 @@ function electricity(id){
     switch (id) {
         case 'daylight_b':
             var x = document.getElementById("daylight").value;
-
-            if(x>20){
-                alert('Enter between 0 to 20');
-            }
-            else{
-            document.getElementById("disabledRange").value=parseInt(slider_electricity)+ parseInt(x);
-            }
+            document.getElementById("disabledRange").value=(parseInt(slider_electricity)+ parseInt(x))/100;
             break;
 
         case 'led_b':
             var x = document.getElementById("led").value;
-            document.getElementById("disabledRange").value= parseInt(slider_electricity)+ parseInt(x) ;
+            document.getElementById("disabledRange").value= (parseInt(slider_electricity)+ parseInt(x))/100 ;
             break;    
 
         case 'bulb_b':
             var x = document.getElementById("bulb").value;
-            document.getElementById("disabledRange").value=slider_electricity - x;
+            document.getElementById("disabledRange").value= (slider_electricity - x)/100;
             break;
         case 'wash_b':
             var x = document.getElementById("wash").value;
-            document.getElementById("disabledRange").value = slider_electricity - x;
+            document.getElementById("disabledRange").value = (slider_electricity - x)/100;
             break;
         case 'heater_b':
             var x = document.getElementById("heater").value;
-            document.getElementById("disabledRange").value=slider_electricity - x;
+            document.getElementById("disabledRange").value= (slider_electricity - x)/100;
             break;
         case 'dishwasher_b':
             var x = document.getElementById("dishwasher").value;
-            document.getElementById("disabledRange").value=slider_electricity - x;
+            document.getElementById("disabledRange").value=(slider_electricity - x)/100;
             break;
     }
     localStorage.setItem('electricity_slider',document.getElementById("disabledRange").value )
