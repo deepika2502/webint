@@ -158,7 +158,13 @@ function electricity(id){
     switch (id) {
         case 'daylight_b':
             var x = document.getElementById("daylight").value;
+
+            if(x>20){
+                alert('Enter between 0 to 20');
+            }
+            else{
             document.getElementById("disabledRange").value=parseInt(slider_electricity)+ parseInt(x);
+            }
             break;
 
         case 'led_b':
