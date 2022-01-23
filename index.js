@@ -71,7 +71,10 @@ function reset() {
     localStorage.getItem("travel_slider") || 1;
   document.getElementById("electricity_slider_1").value =
     localStorage.getItem("electricity_slider") || 1;
-  document.getElementById("disabledRange").value = (parseInt(localStorage.getItem("electricity_slider")) + parseInt(localStorage.getItem("travel_slider"))+ parseInt(localStorage.getItem("waste_slider"))) / 3 || 1;
+  var total_main_slider = (parseInt(localStorage.getItem("electricity_slider")) + parseInt(localStorage.getItem("travel_slider"))+ parseInt(localStorage.getItem("waste_slider"))) / 3 ;
+  total_main_slider = total_main_slider > 100 ? 100 : total_main_slider;
+  total_main_slider = total_main_slider < 0 ? 0 : total_main_slider;
+  document.getElementById("disabledRange").value = total_main_slider || 1;
 }
 
 function recycle(id) {
