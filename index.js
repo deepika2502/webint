@@ -59,7 +59,7 @@ function reset(){
 
 function recycle(id){
     console.log('Clicked: ' + id)
-    slider_waste = localStorage.getItem('waste_slider');
+    slider_waste = localStorage.getItem('waste_slider') || 1;
     switch (id) {
         case 'organic_1':
             var x = document.getElementById("organic_slider_1").value;
