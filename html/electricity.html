@@ -76,7 +76,7 @@
       <div class="container d-flex justify-content-between  align-items-baseline">
         <h7>Carbon Minutes</h7>
         <label for="disabledRange" class="form-label"></label>
-        <input type="range" class="form-range" id="disabledRange" disabled min="1" max="100">
+        <input type="range" class="form-range" id="disabledRange" disabled min="0" max="100">
         <h7>Green Minutes</h7>
        </div>
      
@@ -95,7 +95,7 @@
            <div class="container d-flex justify-content-between">
              <form>
             <input type="number" class="form-control" id="daylight" placeholder="Add Minutes"   min="0"> 
-            <button type="submit" class="btn btn-primary mb-2" id="daylight_b" onclick="electricity(this.id)">Add</button>
+            <button type="button" class="btn btn-primary mb-2" id="daylight_b" onclick="electricity(this.id)">Add</button>
           </form>
           </div>
           </div>
@@ -111,7 +111,7 @@
            <div class="container d-flex justify-content-around">
             <form>
             <input type="number" class="form-control" id="bulb" placeholder="Add Minutes"   min="0">
-            <button type="submit" class="btn btn-primary mb-2" id="bulb_b" onclick="electricity(this.id)">Add</button>
+            <button type="button" class="btn btn-primary mb-2" id="bulb_b" onclick="electricity(this.id)">Add</button>
             </form>
           </div>
           </div>
@@ -127,7 +127,7 @@
            <div class="container d-flex justify-content-around">
              <form>
             <input type="number" class="form-control" id="led" placeholder="Add Minutes"   min="0">
-            <button type="submit" class="btn btn-primary mb-2" id="led_b" onclick="electricity(this.id)">Add</button>
+            <button type="button" class="btn btn-primary mb-2" id="led_b" onclick="electricity(this.id)">Add</button>
           </form>
           </div>
           </div>
@@ -143,7 +143,7 @@
            <div class="container d-flex justify-content-around">
           <form>
             <input type="number" class="form-control" id="dishwasher" placeholder="Add Minutes"   min="0">
-            <button type="submit" class="btn btn-primary mb-2" id="dishwasher_b" onclick="electricity(this.id)">Add</button>
+            <button type="button" class="btn btn-primary mb-2" id="dishwasher_b" onclick="electricity(this.id)">Add</button>
           </form>
           </div>
           </div>
@@ -159,7 +159,7 @@
            <div class="container d-flex justify-content-around">
           <form>
             <input type="number" class="form-control" id="wash" placeholder="Add Minutes"   min="0">
-            <button type="submit" class="btn btn-primary mb-2" id="wash_b" onclick="electricity(this.id)">Add</button>
+            <button type="button" class="btn btn-primary mb-2" id="wash_b" onclick="electricity(this.id)">Add</button>
           </form>
           </div>
           </div>
@@ -175,7 +175,7 @@
            <div class="container d-flex justify-content-around">
           <form>
             <input type="number" class="form-control" id="heater" placeholder="Add Minutes"   min="0">
-            <button type="submit" class="btn btn-primary mb-2" id="heater_b" onclick="electricity(this.id)">Add</button>
+            <button type="button" class="btn btn-primary mb-2" id="heater_b" onclick="electricity(this.id)">Add</button>
           </form>
           </div>
           </div>
@@ -196,9 +196,10 @@
         <img class="mb-2" src="../logo_wbg.png" alt="" width="60" height="60">
         <small class="d-block mb-3 text-muted">&copy; 2017–2022</small>
       </div>
-    <div class="col-12 col-md">
+      <div class="col-12 col-md">
         <a href= 'https://github.com/deepika2502/webint.github.io'><img class="mb-2" src="../gh.png" alt="" width="60" height="60"></a>
       </div>
+    
     <div class="col-6 col-md">
       <h5>Done by</h5>
       <ul class="list-unstyled text-small">
@@ -222,4 +223,4 @@
   
 
   </body>
-</html> 
+</html>
