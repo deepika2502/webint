@@ -47,7 +47,7 @@ span{
 }
 
 .card{
-  cursor: hand;
+  cursor: pointer;
   transition: 0.5s;
   background-color: #a7aa76;
 }
